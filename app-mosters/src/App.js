@@ -9,48 +9,35 @@ class App extends Component {
   constructor() {
     super();
 
-    // this.state = {
-    //   name: 'VInnod',
-    //   company: 'Home',
-    // };
-
     this.state = {
-      name: { firstName: 'Desmond', lastName: 'Fernando' },
-      company: 'Home',
+      monsters: [
+        {
+          name: 'Linda',
+          id: '13dfertr',
+        },
+        {
+          name: 'Frank',
+          id: '14dfertr',
+        },
+        {
+          name: 'Jacky',
+          id: '15dfertr',
+        },
+      ],
     };
   }
   // React will rerender this when ever state changes
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {/* Hi {this.state.name}, I work at {this.state.company} */}
-            Hi {this.state.name.firstName}, I work at {this.state.company}
-          </p>
-
-          <button
-            onClick={() => {
-              // Prefered approach
-              this.setState(
-                // This state and props are optional
-                // (state, props) => {
-                () => {
-                  return {
-                    name: { firstName: 'Vinod', lastName: 'Warnakula' },
-                  };
-                },
-                // this secondary callback is also optional but this will output the correct states, as React will batch the rendering in a async way
-                () => {
-                  console.log(this.state);
-                }
-              );
-            }}
-          >
-            Change Name
-          </button>
-        </header>
+        {this.state.monsters.map((monster) => {
+          return (
+            // This key is nessary otuer element so that React to effeciently decide which only or needed component to render rather than everything
+            <div key={monster.id}>
+              <h1>{monster.name}</h1>
+            </div>
+          );
+        })}
       </div>
     );
   }
