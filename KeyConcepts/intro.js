@@ -54,3 +54,5 @@ Upgrade a package to its latest version: npm update --save == yarn upgrade
 Install a package globally: npm install package -g == yarn global add package
 
 */
+
+// npx vs npm
