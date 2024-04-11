@@ -6,15 +6,19 @@ import './App.css';
 // Class Components
 class App extends Component {
   // Local state
+  // this is the 1st method to run
   constructor() {
     super();
 
     this.state = {
       monsters: [],
     };
+    console.log('1 - constructor');
   }
 
+  // this is the 3rd method to run
   componentDidMount() {
+    console.log('3 - componentDidMount');
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => {
         return response.json();
@@ -32,7 +36,9 @@ class App extends Component {
   }
 
   // React will rerender this when ever state changes
+  // this is the 2nd method to run
   render() {
+    console.log('2 - render');
     return (
       <div className="App">
         {this.state.monsters.map((monster) => {
@@ -47,28 +53,5 @@ class App extends Component {
     );
   }
 }
-
-// Functional Components
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
