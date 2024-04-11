@@ -10,22 +10,27 @@ class App extends Component {
     super();
 
     this.state = {
-      monsters: [
-        {
-          name: 'Linda',
-          id: '13dfertr',
-        },
-        {
-          name: 'Frank',
-          id: '14dfertr',
-        },
-        {
-          name: 'Jacky',
-          id: '15dfertr',
-        },
-      ],
+      monsters: [],
     };
   }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => {
+        return response.json();
+      })
+      .then((users) => {
+        this.setState(
+          () => {
+            return { monsters: users };
+          },
+          () => {
+            console.log(this.state);
+          }
+        );
+      });
+  }
+
   // React will rerender this when ever state changes
   render() {
     return (
