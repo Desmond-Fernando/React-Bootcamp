@@ -1,5 +1,8 @@
 import { Component } from 'react';
 
+import Card from './card/card.component';
+import './card-list.styles.css';
+
 class CardList extends Component {
   render() {
     // console.log(this.props); // This will output both monsters and anything array
@@ -8,14 +11,14 @@ class CardList extends Component {
     // 1. When ever the props changes
     // 2. When setState get called
     console.log(this.props.monsters);
-    console.log('Render from CardList');
+
     const { monsters } = this.props;
 
     return (
-      <div>
-        {monsters.map((monster) => (
-          <h1 key={monster.id}>{monster.name}</h1>
-        ))}
+      <div className="card-list">
+        {monsters.map((monster) => {
+          return <Card monster={monster} key={monster.id} />;
+        })}
       </div>
     );
   }
