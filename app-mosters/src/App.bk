@@ -32,20 +32,12 @@ class App extends Component {
 
           <button
             onClick={() => {
-              // Prefered approach
-              this.setState(
-                // This state and props are optional
-                // (state, props) => {
-                () => {
-                  return {
-                    name: { firstName: 'Vinod', lastName: 'Warnakula' },
-                  };
-                },
-                // this secondary callback is also optional but this will output the correct states, as React will batch the rendering in a async way
-                () => {
-                  console.log(this.state);
-                }
-              );
+              // Shallow merge to update the state for a new object
+              this.setState({
+                // name: 'Desmond',
+                name: { firstName: 'Vinod', lastName: 'Warnakula' },
+              });
+              console.log(this.state);
             }}
           >
             Change Name
