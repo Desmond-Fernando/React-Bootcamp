@@ -6,8 +6,6 @@ import CardList from './components/card-list/card-list.component';
 
 // Class Components
 class App extends Component {
-  // Local state
-  // this is the 1st method to run
   constructor() {
     super();
 
@@ -15,12 +13,9 @@ class App extends Component {
       monsters: [],
       searchField: '',
     };
-    console.log('1 - constructor');
   }
 
-  // this is the 3rd method to run
   componentDidMount() {
-    console.log('3 - componentDidMount');
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => {
         return response.json();
@@ -46,11 +41,7 @@ class App extends Component {
     });
   };
 
-  // React will rerender this when ever state changes
-  // this is the 2nd method to run
   render() {
-    console.log('2 - render');
-
     // Using destructring instead of using 'this' everywhere
     const { monsters, searchField } = this.state;
     const { onSearchChange } = this;
