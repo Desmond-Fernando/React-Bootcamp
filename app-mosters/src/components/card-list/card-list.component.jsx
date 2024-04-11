@@ -10,7 +10,7 @@ class CardList extends Component {
     // Component gets re-render based on two conditions
     // 1. When ever the props changes
     // 2. When setState get called
-    console.log(this.props.monsters);
+    // console.log(this.props.monsters);
 
     const { monsters } = this.props;
 
