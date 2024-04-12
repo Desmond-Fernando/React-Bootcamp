@@ -11,7 +11,9 @@ const App = () => {
   const [searchField, setSearchField] = useState(''); // [value, setValue]
   const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
-  // const [stringField, setStringField] = useState('');
+  const [yourComment, setYourComment] = useState('');
+
+  console.log('renered');
 
   // Run once during the first render and if any dependency changes in the dependency array
   useEffect(() => {
@@ -37,23 +39,26 @@ const App = () => {
     setSearchField(searchFieldString);
   };
 
-  // const onStringChange = (event) => {
-  //   setStringField(event.target.value);
-  // };
+  // Testing Repaint and Reflow -  enable Paint Flashing in redering tab under dev tools
+  const onYourCommentChange = (event) => {
+    setYourComment(event.target.value);
+  };
 
   return (
     <div className="App">
       <h1 className="app-title">New Monster Search App</h1>
+      <h1 className="app-title">{yourComment}</h1>
       <SearchBox
         className="search-box"
         placeholder="search monsters"
         onChangeHandler={onSearchChange}
       />
-      {/* <SearchBox
+      <br />
+      <SearchBox
         className="search-box"
-        placeholder="search String"
-        onChangeHandler={onStringChange}
-      /> */}
+        placeholder="Enter your comment"
+        onChangeHandler={onYourCommentChange}
+      />
       <CardList monsters={filteredMonsters} />
     </div>
   );
